@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Task Management App - Edit Task</title>
+    <!-- Add any styles or scripts here -->
+</head>
+<body>
+<h2>Edit Task</h2>
+<form th:action="@{/tasks/edit/{id}(id=${task.id})}" method="post" th:object="${task}">
+    <input type="hidden" th:field="*{id}" />
+    <label>Title: <input type="text" th:field="*{title}" /></label><br/>
+    <label>Description: <input type="text" th:field="*{description}" /></label><br/>
+    <label>Due Date: <input type="date" th:field="*{dueDate}" /></label><br/>
+    <label>Completed: <input type="checkbox" th:field="*{completed}" /></label><br/>
+    <button type="submit">Update Task</button>
+</form>
+<a th:href="@{/tasks}">Back to Task List</a>
+</body>
+</html>
